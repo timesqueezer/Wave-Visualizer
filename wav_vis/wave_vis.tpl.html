@@ -1,0 +1,28 @@
+<h1>Wave Visualizer</h1>
+
+<label for="loadFile">Load Wave File</label>
+<input name="loadFile" type="file" fileread="wavefile">
+
+<div id="WavContainer"
+     ng-wavcanvas
+     width='canvasWidth'
+     height='canvasHeight'
+     fcolor='fcolor'
+     bgcolor='bgcolor'
+     values='values'></div>
+
+<div class="formgroup">
+    <label for="canvasWidth">Canvas Width</label>
+    <input type="text" id="canvasWidth" ng-model="canvasWidth">
+    
+    <label for="canvasHeight">Canvas Height</label>
+    <input type="text" id="canvasHeight" ng-model="canvasHeight">
+    
+    <label for="fcolor">Wave Color</label>
+    <input type="color" id="fcolor" ng-model="fcolor">
+    
+    <label for="bgcolor">Background Color</label>
+    <input type="color" id="bgcolor" ng-model="bgcolor">
+    
+    
+</div>

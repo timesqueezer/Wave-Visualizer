@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wavVisualizer" ng-controller="AppCtrl">
+    <head>
+        <title ng-bind="pageTitle"></title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="bs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        
+        <link href="styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>    
+        <div class="container">
+            <div class="navbar navbar-default">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li ui-sref-active="active">
+                            <a href ui-sref="home">Home</a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a href ui-sref="about">About</a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a href ui-sref="wav_vis">Wave Generator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="container" ui-view="main"></div>
+            
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-inner">
+                        <p>
+                            &copy; 2014 Matz Radloff. Credit goes to <a href="#">This</a> for the wave visualizer script which this site is based on.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+        <!-- Script loading -->
+        <script src="angular.js"></script>
+        <script src="angular-ui-router.min.js"></script>
+        
+        <script src="about/about.js"></script>
+        <script src="home/home.js"></script>
+        
+        <script src="wav_vis/wave_helpers.js"></script>
+        <script src="wavvisualizer.js"></script>
+        <script src="wav_vis/wave_vis.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
