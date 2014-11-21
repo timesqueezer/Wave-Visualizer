@@ -20,9 +20,6 @@ angular.module( 'wavVisualizer.wav_vis', [
     $scope.canvasHeight = 800;
     $scope.fcolor = '#52b7ff';
     $scope.bgcolor = '#111111';
-    
-    //$scope.values = "";
-    
 })
 
 .directive( 'fileread', [function() {

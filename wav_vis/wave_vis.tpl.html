@@ -11,18 +11,22 @@
      bgcolor='bgcolor'
      values='values'></div>
 
-<div class="formgroup">
-    <label for="canvasWidth">Canvas Width</label>
-    <input type="text" id="canvasWidth" ng-model="canvasWidth">
+<form class="form-horizontal">
+    <div class="formgroup">
+        <label for="canvasWidth">Canvas Width</label>
+        <input type="text" id="canvasWidth" ng-model="canvasWidth">
+    </div>
+    <div class="formgroup">
+        <label for="canvasHeight">Canvas Height</label>
+        <input type="text" id="canvasHeight" ng-model="canvasHeight">
+    </div>
+    <div class="formgroup">
+        <label for="fcolor">Wave Color</label>
+        <input type="color" id="fcolor" ng-model="fcolor">
+    </div>
+    <div class="formgroup">
+        <label for="bgcolor">Background Color</label>
+        <input type="color" id="bgcolor" ng-model="bgcolor">
+    </div>
+</form>
     
-    <label for="canvasHeight">Canvas Height</label>
-    <input type="text" id="canvasHeight" ng-model="canvasHeight">
-    
-    <label for="fcolor">Wave Color</label>
-    <input type="color" id="fcolor" ng-model="fcolor">
-    
-    <label for="bgcolor">Background Color</label>
-    <input type="color" id="bgcolor" ng-model="bgcolor">
-    
-    
-</div>
