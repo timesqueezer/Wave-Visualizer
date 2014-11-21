@@ -55,27 +55,26 @@ angular.module( 'wavVisualizer.wav_vis', [
 
                 scope.canvas.width = scope.viewport.size.x;
                 scope.canvas.height = scope.viewport.size.y;
-
-                var ctx = scope.canvas.getContext('2d');
-
-                ctx.fillStyle = scope.bgcolor;
-                ctx.fillRect(0, 0, scope.viewport.size.x, scope.viewport.size.y);
-
-                ctx.strokeStyle = scope.fcolor;
                 
                 element[0].appendChild(scope.canvas);
             };
             
             scope.draw = function() {
+                                
+                var ctx = scope.canvas.getContext('2d');
+                
+                ctx.fillStyle = scope.bgcolor;
+                ctx.fillRect(0, 0, scope.viewport.size.x, scope.viewport.size.y);
+
+                ctx.strokeStyle = scope.fcolor;
+                
                 var samples = scope.values.samplesForChannels[0];
                 var numberOfSamples = samples.length;
                 var pixelsPerSample = scope.viewport.size.x / scope.values.durationInSamples();
                 var samplePerPixel = scope.values.durationInSamples() / scope.viewport.size.x;
 
                 var drawPos = new Coords(0, 0);
-                
-                var ctx = scope.canvas.getContext('2d');
-                
+
                 ctx.beginPath();
                 ctx.lineWidth="1";
 
