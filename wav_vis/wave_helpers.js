@@ -1,3 +1,11 @@
+function injectIntoAngular(wave) {
+    var scope = angular.element(document.getElementById("WavContainer")).scope();
+    scope.$apply(function() {
+        scope.values = wave;
+    });
+    scope.$broadcast('newValues');
+}
+
 function ByteStreamLittleEndian(bytes)
 {
 	this.bytes = bytes;  
@@ -146,7 +154,8 @@ function WavFile
 				returnValue.readFromFilePath_ReadChunks(reader);
 			}
             
-            Globals.Instance.visualizer.loadFileAndVisualize_LoadComplete(returnValue);
+            injectIntoAngular(returnValue);
+            
 		}
 
 		fileReader.readAsBinaryString(fileToReadFrom);

@@ -16,26 +16,23 @@ angular.module( 'wavVisualizer.wav_vis', [
 })
 
 .controller( 'WaveCtrl', function( $scope ) {
-    $scope.wavViz = new WavFileVisualizer();
-    $scope.wavViz.initialize();
-    
     $scope.canvasWidth = 1280;
     $scope.canvasHeight = 800;
     $scope.fcolor = '#52b7ff';
     $scope.bgcolor = '#111111';
     
-    $scope.values = "penis";
+    //$scope.values = "";
     
 })
 
 .directive( 'fileread', [function() {
     return {
         transclude: true,
-        
+        restrict: 'A',
         link: function( scope, element, attributes ) {
             element.bind("change", function( changeEvent ) {
                 
-                scope.wavViz.loadFileAndVisualize( changeEvent.target.files[0] );
+                WavFile.readFromFile( changeEvent.target.files[0] );
                 
             });
         }
@@ -95,10 +92,8 @@ angular.module( 'wavVisualizer.wav_vis', [
                         scope.viewport.sizeHalf.y 
                         - (samples[( s*samplePerPixel | 0)].convertToDouble() * scope.viewport.sizeHalf.y);
 
-                    //graphics.fillRect(drawPos.x, drawPos.y, 1, 1);
                     ctx.moveTo(lastX, lastY);
                     ctx.lineTo(drawPos.x, drawPos.y);
-                    //graphics.quadraticCurveTo(drawPos.x, lastY, drawPos.x, drawPos.y);
 
                     lastX = drawPos.x;
                     lastY = drawPos.y;
@@ -109,8 +104,7 @@ angular.module( 'wavVisualizer.wav_vis', [
             
             
             scope.updateCanvas = function() {
-                scope.viewport.size.x = scope.width;
-                scope.viewport.size.y = scope.height;
+                scope.viewport = new Viewport( "Viewport0", new Coords( scope.width, scope.height ) );
                 
                 scope.canvas.width = scope.viewport.size.x;
                 scope.canvas.height = scope.viewport.size.y;
